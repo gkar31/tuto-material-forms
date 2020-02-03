@@ -10,6 +10,15 @@ export class AppComponent {
   title = 'Bootstrap Inc.';
 
   topics = ['Angular', 'React', 'Vue'];
+  topicHasError=true;
 
-  userModel = new User('Rob', 'rob@test.com',118218,'','morning',true);
+  userModel = new User('Rob', 'rob@test.com',118218,'default','morning',true);
+
+  validateTopic(value) {
+    if (value === 'default') {
+      this.topicHasError = true;
+    } else {
+      this.topicHasError = false ;
+    }
+  }
 }
