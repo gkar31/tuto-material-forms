@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { User } from './user';
+import { EnrollmentService } from './enrollment.service';
+import { VirtualTimeScheduler } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -14,11 +17,22 @@ export class AppComponent {
 
   userModel = new User('Rob', 'rob@test.com',118218,'default','morning',true);
 
+  constructor(private _enrollmentService : EnrollmentService) {
+
+  }
+
   validateTopic(value) {
     if (value === 'default') {
       this.topicHasError = true;
     } else {
       this.topicHasError = false ;
     }
+  }
+
+  onSubmit() {
+    console.log(this.userModel);
+    this._enrollmentService.enroll(this.userModel).subscribe(data => console.log('success', data),
+    error => console.error('Error !', error));
+    
   }
 }

@@ -1,10 +1,10 @@
 <div class="container-fluid">
   <h1>Bootstrap enrollment Form</h1>
 
-  <form #userForm="ngForm">
+  <form #userForm="ngForm" (ngSubmit)="onSubmit()" novaidate>
 
    
-    <div class="form-group">
+    <div class="form-group" >
       <label>Name</label>
       <input type="text" #name="ngModel" required class="form-control" name="userName" [(ngModel)]="userModel.name" [class.is-invalid]="name.invalid && name.touched">
       <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small>
@@ -54,6 +54,6 @@
       <label  class="form-check-label">Send me promotional offers</label>
     </div>
 
-    <button class="btn btn-primary" type="submit">Submit form</button>
+    <button [disabled]="userForm.form.invalid || topicHasError"  class="btn btn-primary" type="submit">Submit form</button>
   </form>
 </div>
