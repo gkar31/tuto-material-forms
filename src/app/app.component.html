@@ -1,7 +1,17 @@
 <div class="container-fluid">
   <h1>Bootstrap enrollment Form</h1>
 
-  <form #userForm="ngForm" (ngSubmit)="onSubmit()" novaidate>
+  <div *ngIf="submitted">
+    <br>
+    <h2>Form submitted with success !!!</h2>
+
+  </div>
+
+  <div class="alert alert-danger" *ngIf="errorMsg">
+      {{errorMsg}}
+  </div>
+  
+  <form #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()" novaidate>
 
    
     <div class="form-group" >
