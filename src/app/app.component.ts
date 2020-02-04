@@ -15,7 +15,7 @@ export class AppComponent {
   topics = ['Angular', 'React', 'Vue'];
   topicHasError=true;
 
-  userModel = new User('Rob', 'rob@test.com',118218,'default','morning',true);
+  userModel = new User('Rob', 'rob@test.com',1182184321,'default','morning',true);
 
   constructor(private _enrollmentService : EnrollmentService) {
 
